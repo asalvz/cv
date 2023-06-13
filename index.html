@@ -8,13 +8,10 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-    }
-    
-    /* Estilos para el fondo oscuro con gradiente */
-    body {
       background: linear-gradient(45deg, #1a237e, #000000);
+      color: #ffffff;
     }
-    
+
     /* Estilos para el mensaje de bienvenida flotante */
     .welcome-message {
       position: fixed;
@@ -22,58 +19,57 @@
       left: 50%;
       transform: translate(-50%, -50%);
       padding: 20px;
-      background-color: rgba(255, 255, 255, 0.8);
-      color: #000000;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #ffffff;
       font-size: 24px;
       font-weight: bold;
       animation: fadeOut 3s ease-in-out;
     }
-    
+
     /* Animación para el mensaje de bienvenida */
     @keyframes fadeOut {
       0% { opacity: 1; }
       50% { opacity: 1; }
       100% { opacity: 0; display: none; }
     }
-    
+
     /* Estilos para el contenido principal */
     .content {
       max-width: 800px;
       margin: 0 auto;
       padding: 40px;
-      background-color: rgba(255, 255, 255, 0.9);
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      background-color: rgba(0, 0, 0, 0.9);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
       margin-top: 80px;
-      color: #000000;
       text-align: center;
     }
-    
+
     h1 {
       font-size: 36px;
       margin-bottom: 20px;
     }
-    
+
     .profile-image {
       max-width: 200px;
       display: block;
       margin: 0 auto;
       border-radius: 50%;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
     }
-    
+
     .tabs {
       display: flex;
       justify-content: center;
       margin-top: 20px;
     }
-    
+
     .tab {
       padding: 10px 20px;
-      background-color: lightgray;
+      background-color: #333333;
       cursor: pointer;
       margin: 0 5px;
     }
-    
+
     /* Estilos para el botón de contacto */
     .contact-button {
       background-color: #ff4081;
@@ -86,11 +82,11 @@
       margin-top: 20px;
       transition: background-color 0.3s;
     }
-    
+
     .contact-button:hover {
       background-color: #d5004e;
     }
-    
+
     /* Estilos para la ventana emergente de contacto */
     .contact-popup {
       position: fixed;
@@ -99,19 +95,20 @@
       transform: translate(-50%, -50%);
       width: 300px;
       padding: 20px;
-      background-color: white;
+      background-color: #ffffff;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       display: none;
       text-align: center;
+      color: #000000;
     }
-    
+
     /* Estilos para el contador de likes */
     .like-counter {
       text-align: center;
       font-size: 18px;
       margin-top: 20px;
     }
-    
+
     .like-button {
       cursor: pointer;
       color: red;
@@ -123,14 +120,14 @@
       var popup = document.getElementById("contact-popup");
       popup.style.display = (popup.style.display === "none") ? "block" : "none";
     }
-    
+
     // Función para incrementar el contador de likes
     function incrementLikes() {
       var counter = document.getElementById("like-counter");
       var likes = parseInt(counter.textContent);
       counter.textContent = (likes + 1).toString();
     }
-    
+
     // Función para mostrar el mensaje de bienvenida y ocultarlo después de un tiempo
     window.onload = function() {
       var welcomeMessage = document.getElementById("welcome-message");
@@ -143,32 +140,33 @@
 </head>
 <body>
   <div id="welcome-message" class="welcome-message">¡Gracias por visitar mi perfil!</div>
-  
+
   <div class="content">
     <h1>Horacio Ortiz</h1>
-  
+
     <img src="https://lavender-bewildered-octopus-416.mypinata.cloud/ipfs/QmXh1FVE7JqnFFNDpXb2xhWsF58QXHBdE7jDm4d92wL5M4?_gl=1*1rx40z6*rs_ga*NTgzMzM3YTMtOWRiMS00MjJmLTgyOGItODNiMzI4NGEzZmQw*rs_ga_5RMPXG14TE*MTY4NjY2NDA2Ny4xNi4xLjE2ODY2NjQ0MTcuNjAuMC4w" alt="Foto de perfil" class="profile-image">
-  
+
     <div class="tabs">
       <div class="tab">Habilidades</div>
       <div class="tab">Conocimientos</div>
       <div class="tab">Datos personales</div>
       <div class="tab">Cualidades</div>
     </div>
-  
+
     <button onclick="toggleContactPopup()" class="contact-button">Contacto</button>
-  
+
     <div id="contact-popup" class="contact-popup">
-      <p>Correo:horaciowalterortiz@gmail.com</p>
+      <p>Correo: horaciowalterortiz@gmail.com</p>
       <p>Teléfono: +54 9 2617048835</p>
       <p>Telegram: @horaciodev</p>
       <p>WhatsApp: +54 9 2617048835</p>
+      <button onclick="toggleContactPopup()" class="contact-button">Cerrar</button>
     </div>
-  
+
     <div class="like-counter">
       <span id="like-counter">0</span> Likes
     </div>
-  
+
     <div class="like-button" onclick="incrementLikes()">Like</div>
   </div>
 </body>
