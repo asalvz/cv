@@ -16,24 +16,6 @@ body {
 /* Estilos para el mensaje de bienvenida flotante */
 .welcome-message {
   position: fixed;
-  top: 50%;<!DOCTYPE html>
-<html>
-<head>
-  <title>Horacio Ortiz</title>
-  
-  <style>
-/* Estilos globales */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(45deg, #1a237e, #000000);
-  color: #ffffff;
-}
-
-/* Estilos para el mensaje de bienvenida flotante */
-.welcome-message {
-  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -173,19 +155,6 @@ h1 {
       counter.textContent = (likes + 1).toString();
     }
 
-    // Función para mostrar/ocultar el contenido de las pestañas
-    function toggleContent(tabName) {
-      var contentList = document.getElementsByClassName("tab-content");
-      for (var i = 0; i < contentList.length; i++) {
-        contentList[i].style.display = "none";
-      }
-
-      var tabContent = document.getElementById(tabName + "-content");
-      if (tabContent) {
-        tabContent.style.display = "block";
-      }
-    }
-
     // Función para mostrar el mensaje de bienvenida y ocultarlo después de un tiempo
     window.onload = function() {
       var welcomeMessage = document.getElementById("welcome-message");
@@ -205,34 +174,10 @@ h1 {
     <img src="https://lavender-bewildered-octopus-416.mypinata.cloud/ipfs/QmXh1FVE7JqnFFNDpXb2xhWsF58QXHBdE7jDm4d92wL5M4?_gl=1*1rx40z6*rs_ga*NTgzMzM3YTMtOWRiMS00MjJmLTgyOGItODNiMzI4NGEzZmQw*rs_ga_5RMPXG14TE*MTY4NjY2NDA2Ny4xNi4xLjE2ODY2NjQ0MTcuNjAuMC4w" alt="Foto de perfil" class="profile-image">
 
     <div class="tabs">
-      <div class="tab" onclick="toggleContent('skills')">Habilidades</div>
-      <div class="tab" onclick="toggleContent('knowledge')">Conocimientos</div>
-      <div class="tab" onclick="toggleContent('personal-data')">Datos personales</div>
-      <div class="tab" onclick="toggleContent('qualities')">Cualidades</div>
-    </div>
-
-    <div id="skills-content" class="tab-content" style="display: none;">
-      <p>Lenguajes: Python, Java, C#, Ruby, PHP.
-Frameworks: Django, Flask, Spring, ASP.NET, Ruby on Rails, Laravel, Symfony.
-Bases de datos: MySQL, PostgreSQL, MongoDB.
-APIs y servicios web: Diseño y desarrollo de APIs RESTful. Uso de Swagger y Postman.
-Seguridad: Implementación de medidas de seguridad y protección contra ataques comunes.
-Control de versiones: Git.
-Pruebas y depuración: Pruebas unitarias, integración y funcionales.
-Escalabilidad y rendimiento: Optimización de consultas, almacenamiento en caché y escalabilidad horizontal.
-Conceptos de redes: HTTP, TCP/IP</p>
-    </div>
-
-    <div id="knowledge-content" class="tab-content" style="display: none;">
-      <p>Aquí puedes agregar tus conocimientos y descripciones correspondientes.</p>
-    </div>
-
-    <div id="personal-data-content" class="tab-content" style="display: none;">
-      <p>Aquí puedes agregar tus datos personales y descripciones correspondientes.</p>
-    </div>
-
-    <div id="qualities-content" class="tab-content" style="display: none;">
-      <p>Aquí puedes agregar tus cualidades y descripciones correspondientes.</p>
+      <div class="tab">Habilidades</div>
+      <div class="tab">Conocimientos</div>
+      <div class="tab">Datos personales</div>
+      <div class="tab">Cualidades</div>
     </div>
 
     <button onclick="toggleContactPopup()" class="contact-button">Contacto</button>
