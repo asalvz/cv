@@ -8,22 +8,12 @@
       background-repeat: no-repeat;
       background-size: cover;
       background-attachment: fixed;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
     }
 
     .container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-    }
-
-    .centered-content {
       max-width: 800px;
-      width: 100%;
-    }
-
-    .content {
-      max-width: 600px;
       margin: 0 auto;
       padding: 20px;
     }
@@ -42,11 +32,19 @@
     /* Estilos para las pestañas */
     .tabs {
       margin-bottom: 20px;
+      text-align: center;
     }
 
     .tab {
       display: inline-block;
       margin-right: 10px;
+      opacity: 0.6;
+      transition: opacity 0.3s ease;
+      cursor: pointer;
+    }
+
+    .tab:hover {
+      opacity: 1;
     }
 
     .tab button {
@@ -58,16 +56,11 @@
       cursor: pointer;
     }
 
-    .tab button:hover {
-      background-color: #6c449d;
-    }
-
     /* Estilos para el contenido de las pestañas */
     .tab-content {
       display: none;
       padding: 20px;
       background-image: linear-gradient(#4c2889, #6c449d);
-      color: #ffffff;
     }
 
     /* Estilos para el botón de contacto */
@@ -111,6 +104,41 @@
       cursor: pointer;
       color: red;
     }
+
+    /* Estilos para el sector de comentarios */
+    .comments {
+      margin-top: 30px;
+    }
+
+    .comment {
+      margin-bottom: 20px;
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .comment .author {
+      font-weight: bold;
+    }
+
+    .comment .timestamp {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Estilos para los objetos decorativos */
+    .objects {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .object {
+      width: 80px;
+      height: 80px;
+      background-color: rgba(255, 255, 255, 0.2);
+      margin: 10px;
+    }
   </style>
   <script>
     // Función para mostrar/ocultar la ventana emergente de contacto
@@ -126,6 +154,23 @@
       counter.textContent = (likes + 1).toString();
     }
 
+    // Función para rotar las pestañas
+    function rotateTabs() {
+      var tabs = document.getElementsByClassName("tab");
+      var activeTab = document.querySelector(".tab.active");
+
+      if (activeTab) {
+        activeTab.classList.remove("active");
+        var nextTab = activeTab.nextElementSibling;
+        if (!nextTab) {
+          nextTab = tabs[0];
+        }
+        nextTab.classList.add("active");
+        openTab(nextTab.dataset.tab);
+      }
+    }
+
+    // Función para abrir una pestaña
     function openTab(tabName) {
       var i, tabContent;
       tabContent = document.getElementsByClassName("tab-content");
@@ -134,83 +179,86 @@
       }
       document.getElementById(tabName).style.display = "block";
     }
+
+    // Iniciar la rotación de las pestañas
+    setInterval(rotateTabs, 3000);
   </script>
 </head>
 <body>
   <div class="container">
-    <div class="centered-content">
-      <div class="content">
-        <h1>Perfil Profesional</h1>
-        <img class="profile-image" src="https://lavender-bewildered-octopus-416.mypinata.cloud/ipfs/QmXh1FVE7JqnFFNDpXb2xhWsF58QXHBdE7jDm4d92wL5M4?_gl=1*9qzx3m*rs_ga*NTgzMzM3YTMtOWRiMS00MjJmLTgyOGItODNiMzI4NGEzZmQw*rs_ga_5RMPXG14TE*MTY4Njc5NDYwMC4xOC4xLjE2ODY3OTQ3MzYuNjAuMC4w" alt="Imagen de perfil">
+    <h1>Perfil Profesional</h1>
+    <img class="profile-image" src="https://lavender-bewildered-octopus-416.mypinata.cloud/ipfs/QmXh1FVE7JqnFFNDpXb2xhWsF58QXHBdE7jDm4d92wL5M4?_gl=1*9qzx3m*rs_ga*NTgzMzM3YTMtOWRiMS00MjJmLTgyOGItODNiMzI4NGEzZmQw*rs_ga_5RMPXG14TE*MTY4Njc5NDYwMC4xOC4xLjE2ODY3OTQ3MzYuNjAuMC4w" alt="Imagen de perfil">
 
-        <div class="tabs">
-          <div class="tab">
-            <button onclick="openTab('experience')">Experiencia</button>
-          </div>
-          <div class="tab">
-            <button onclick="openTab('skills')">Habilidades</button>
-          </div>
-          <div class="tab">
-            <button onclick="openTab('knowledge')">Conocimientos</button>
-          </div>
-          <div class="tab">
-            <button onclick="openTab('personal-data')">Datos Personales</button>
-          </div>
-          <div class="tab">
-            <button onclick="openTab('qualities')">Cualidades</button>
-          </div>
-        </div>
-
-        <div id="experience" class="tab-content">
-          <h3>Experiencia</h3>
-          <p>Aquí puedes agregar tu texto sobre experiencia.</p>
-        </div>
-
-        <div id="skills" class="tab-content" style="display: block;">
-          <h3>Habilidades</h3>
-          <ul>
-            <li>Lenguajes de programación: JavaScript, Python, Java.</li>
-            <li>Frameworks y bibliotecas: React, Angular, Node.js, Express.js.</li>
-            <li>Bases de datos: MySQL, PostgreSQL, MongoDB.</li>
-            <li>APIs y servicios web: Diseño y desarrollo de APIs RESTful. Uso de Swagger y Postman.</li>
-            <li>Seguridad: Implementación de medidas de seguridad y protección contra ataques comunes.</li>
-            <li>Control de versiones: Git.</li>
-            <li>Pruebas y depuración: Pruebas unitarias, integración y funcionales.</li>
-            <li>Escalabilidad y rendimiento: Optimización de consultas, almacenamiento en caché y escalabilidad horizontal.</li>
-            <li>Conceptos de redes: HTTP, TCP/IP.</li>
-          </ul>
-        </div>
-
-        <div id="knowledge" class="tab-content" style="display: none;">
-          <h3>Conocimientos</h3>
-          <p>Aquí puedes agregar tu texto sobre conocimientos.</p>
-        </div>
-
-        <div id="personal-data" class="tab-content" style="display: none;">
-          <h3>Datos Personales</h3>
-          <p>Aquí puedes agregar tu texto sobre datos personales.</p>
-        </div>
-
-        <div id="qualities" class="tab-content" style="display: none;">
-          <h3>Cualidades</h3>
-          <p>Aquí puedes agregar tu texto sobre cualidades.</p>
-        </div>
-
-        <button onclick="toggleContactPopup()" class="contact-button" style="background-color: #00bfbf;">Contacto</button>
-
-        <div id="contact-popup" class="contact-popup">
-          <p>Correo: horaciowalterortiz@gmail.com</p>
-          <p>Teléfono: +54 9 2617048835</p>
-          <p>Telegram: @horaciodev</p>
-          <p>WhatsApp: +54 9 2617048835</p>
-          <button onclick="toggleContactPopup()" class="contact-button">Cerrar</button>
-        </div>
-
-        <div class="like-counter">
-          <span id="like-counter">0</span>
-          <span class="like-button" onclick="incrementLikes()">❤️</span>
-        </div>
+    <div class="tabs">
+      <div class="tab active" data-tab="experience">
+        <button>Experiencia</button>
       </div>
+      <div class="tab" data-tab="skills">
+        <button>Habilidades</button>
+      </div>
+      <div class="tab" data-tab="knowledge">
+        <button>Conocimientos</button>
+      </div>
+      <div class="tab" data-tab="personal-data">
+        <button>Datos Personales</button>
+      </div>
+      <div class="tab" data-tab="qualities">
+        <button>Cualidades</button>
+      </div>
+    </div>
+
+    <div id="experience" class="tab-content">
+      <h3>Experiencia</h3>
+      <p>Aquí puedes agregar tu texto sobre experiencia.</p>
+    </div>
+
+    <div id="skills" class="tab-content">
+      <h3>Habilidades</h3>
+      <p>Aquí puedes agregar tu texto sobre habilidades.</p>
+    </div>
+
+    <div id="knowledge" class="tab-content">
+      <h3>Conocimientos</h3>
+      <p>Aquí puedes agregar tu texto sobre conocimientos.</p>
+    </div>
+
+    <div id="personal-data" class="tab-content">
+      <h3>Datos Personales</h3>
+      <p>Aquí puedes agregar tus datos personales.</p>
+    </div>
+
+    <div id="qualities" class="tab-content">
+      <h3>Cualidades</h3>
+      <p>Aquí puedes agregar tus cualidades.</p>
+    </div>
+
+    <button class="contact-button" onclick="toggleContactPopup()">Contactar</button>
+
+    <div id="contact-popup" class="contact-popup">
+      <h3>Contacto</h3>
+      <p>Puedes utilizar el siguiente formulario para contactarme:</p>
+      <form>
+        <!-- Agrega aquí los campos del formulario de contacto -->
+      </form>
+    </div>
+
+    <div class="like-counter">
+      <span id="like-counter">0</span> likes
+      <span class="like-button" onclick="incrementLikes()">👍</span>
+    </div>
+
+    <div class="comments">
+      <h3>Comentarios</h3>
+      <!-- Agrega aquí los comentarios -->
+    </div>
+
+    <div class="objects">
+      <div class="object"></div>
+      <div class="object"></div>
+      <div class="object"></div>
+      <div class="object"></div>
+      <div class="object"></div>
+      <div class="object"></div>
     </div>
   </div>
 </body>
