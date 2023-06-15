@@ -34,8 +34,8 @@
       100% { opacity: 0; display: none; }
     }
 
-    /* Estilos para la ventana principal */
-    .window {
+    /* Estilos para el contenido principal */
+    .content {
       max-width: 800px;
       margin: 0 auto;
       padding: 40px;
@@ -50,13 +50,22 @@
       margin-bottom: 20px;
     }
 
+    .profile-image {
+      max-width: 200px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 50%;
+      border: 5px solid #ffffff;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
     .tabs {
       display: flex;
       justify-content: center;
       margin-top: 20px;
     }
 
-    .tab {
+   .tab {
       padding: 10px 20px;
       background-color: #333333;
       cursor: pointer;
@@ -70,7 +79,7 @@
       overflow: hidden;
     }
 
-    .tab:before {
+   .tab:before {
       content: "";
       position: absolute;
       top: -110%;
@@ -83,24 +92,99 @@
       z-index: -1;
     }
 
-    .tab:hover:before {
+  .tab:hover:before {
       top: -10%;
       left: -10%;
     }
-
-    .tab-content {
+ .tab-content {
       background-color: rgba(102, 51, 153, 0.8);
       padding: 20px;
       color: #ffffff;
       display: none;
       margin-top: 20px;
+      column-count: 2;
+      column-gap: 20px;
     }
 
-    /* Resto de estilos... */
+    /* Estilos para el botón de contacto */
+    .contact-button {
+      background-color: #ff4081;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s;
+    }
 
+    .contact-button:hover {
+      background-color: #d5004e;
+    }
+
+    /* Estilos para la ventana emergente de contacto */
+    .contact-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      display: none;
+      text-align: center;
+      color: #000000;
+    }
+
+    /* Estilos para el contador de likes */
+    .like-counter {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+    .like-button {
+      cursor: pointer;
+      color: red;
+    }
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .popup-content {
+      background-color: #4a148c;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+     h2 {
+      color: #ffffff;
+      font-size: 24px;
+    }
   </style>
   <script>
-    // Resto de scripts...
+    // Función para mostrar/ocultar la ventana emergente de contacto
+    function toggleContactPopup() {
+      var popup = document.getElementById("contact-popup");
+      popup.style.display = (popup.style.display === "none") ? "block" : "none";
+    }
+
+    // Función para incrementar el contador de likes
+    function incrementLikes() {
+      var counter = document.getElementById("like-counter");
+      var likes = parseInt(counter.textContent);
+      counter.textContent = (likes + 1).toString();
+    }
 
     // Funciones para mostrar y ocultar los contenidos de las pestañas
     function showContent(tabId) {
@@ -111,23 +195,25 @@
       document.getElementById(tabId).style.display = "block";
     }
   </script>
+   <script>
+ 
+    function showContent(tabId) {
+      var tabs = document.getElementsByClassName("tab-content");
+      for (var i = 0; i < tabs.length; i++) {
+        tabs[i].style.display = "none";
+      }
+      document.getElementById(tabId).style.display = "block";
+    }
+  </script>
 </head>
 <body>
-  <div id="welcome-message" class="welcome-message">¡Gracias por visitar mi perfil!</div>
-
-  <div class="window">
+  <div class="content">
     <h1>Horacio Ortiz</h1>
 
-    <!-- Resto de contenido principal... -->
-
-    <div class="tabs">
-      <div class="tab" onclick="showContent('skills')">Habilidades</div>
-      <div class="tab" onclick="showContent('knowledge')">Conocimientos</div>
-      <div class="tab" onclick="showContent('personal-data')">Datos personales</div>
-      <div class="tab" onclick="showContent('qualities')">Cualidades</div>
-    </div>
-
-    <div id="skills" class="tab-content" style="display: none;">
+    <img src="https://lavender-bewildered-octopus-416.mypinata.cloud/ipfs/QmXh1FVE7JqnFFNDpXb2xhWsF58QXHBdE7jDm4d92wL5M4?_gl=1*1rx40z6*rs_ga*NTgzMzM3YTMtOWRiMS00MjJmLTgyOGItODNiMzI4NGEzZmQw*rs_ga_5RMPXG14TE*MTY4NjY2NDA2Ny4xNi4xLjE2ODY2NjQ0MTcuNjAuMC4w" alt="Foto de perfil" class="profile-image">
+  <div class="popup">
+    <div class="popup-content">
+      <h2>Habilidades</h2>
       <ul>
         <li>Lenguajes: Python, Java, C#, Ruby, PHP.</li>
         <li>Frameworks: Django, Flask, Spring, ASP.NET, Ruby on Rails, Laravel, Symfony.</li>
@@ -140,18 +226,62 @@
         <li>Conceptos de redes: HTTP, TCP/IP.</li>
       </ul>
     </div>
+  </div>
 
-    <div id="knowledge" class="tab-content" style="display: none;">
+  <div class="popup">
+    <div class="popup-content">
+      <h2>Conocimientos</h2>
       <p>Aquí puedes agregar tu texto sobre conocimientos.</p>
     </div>
+  </div>
 
-    <div id="personal-data" class="tab-content" style="display: none;">
+  <div class="popup">
+    <div class="popup-content">
+      <h2>Datos personales</h2>
       <p>Aquí puedes agregar tu texto sobre datos personales.</p>
     </div>
+  </div>
 
-    <div id="qualities" class="tab-content" style="display: none;">
+  <div class="popup">
+    <div class="popup-content">
+      <h2>Cualidades</h2>
       <p>Aquí puedes agregar tu texto sobre cualidades.</p>
     </div>
+  </div>
+
+  <div class="tabs">
+    <div class="tab" onclick="showContent('skills')">Habilidades</div>
+    <div class="tab" onclick="showContent('knowledge')">Conocimientos</div>
+    <div class="tab" onclick="showContent('personal-data')">Datos personales</div>
+    <div class="tab" onclick="showContent('qualities')">Cualidades</div>
+  </div>
+
+  <div id="skills" class="tab-content">
+    <ul>
+      <li>Lenguajes: Python, Java, C#, Ruby, PHP.</li>
+      <li>Frameworks: Django, Flask, Spring, ASP.NET, Ruby on Rails, Laravel, Symfony.</li>
+      <li>Bases de datos: MySQL, PostgreSQL, MongoDB.</li>
+      <li>APIs y servicios web: Diseño y desarrollo de APIs RESTful. Uso de Swagger y Postman.</li>
+      <li>Seguridad: Implementación de medidas de seguridad y protección contra ataques comunes.</li>
+      <li>Control de versiones: Git.</li>
+      <li>Pruebas y depuración: Pruebas unitarias, integración y funcionales.</li>
+      <li>Escalabilidad y rendimiento: Optimización de consultas, almacenamiento en caché y escalabilidad horizontal.</li>
+      <li>Conceptos de redes: HTTP, TCP/IP.</li>
+    </ul>
+  </div>
+
+  <div id="knowledge" class="tab-content">
+    <p>Aquí puedes agregar tu texto sobre conocimientos.</p>
+  </div>
+
+  <div id="personal-data" class="tab-content">
+    <p>Aquí puedes agregar tu texto sobre datos personales.</p>
+  </div>
+
+  <div id="qualities" class="tab-content">
+    <p>Aquí puedes agregar tu texto sobre cualidades.</p>
+  </div>
+
 
     <button onclick="toggleContactPopup()" class="contact-button">Contacto</button>
 
@@ -171,4 +301,5 @@
   </div>
 </body>
 </html>
+
 
