@@ -4,18 +4,29 @@
   <style>
     /* Estilos generales */
     body {
-      background-color: #f2f2f2;
+      background: linear-gradient(45deg, #1a237e, #000000);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      color: #ffffff;
       font-family: Arial, sans-serif;
     }
 
-    .content {
-      max-width: 600px;
+    .container {
+      max-width: 800px;
       margin: 0 auto;
       padding: 20px;
     }
 
     h1 {
       text-align: center;
+    }
+
+    .profile-image {
+      display: block;
+      margin: 20px auto;
+      width: 200px;
+      border-radius: 50%;
     }
 
     /* Estilos para las pestañas */
@@ -45,15 +56,10 @@
     .tab-content {
       display: none;
       padding: 20px;
-      background-color: #ffffff;
+      background-image: linear-gradient(#4c2889, #6c449d);
     }
 
-    /* Estilos para los botones de contacto */
-    .contact-buttons {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
+    /* Estilos para el botón de contacto */
     .contact-button {
       background-color: #00bfbf;
       color: #ffffff;
@@ -61,38 +67,25 @@
       padding: 10px 20px;
       font-size: 16px;
       cursor: pointer;
-      margin-right: 10px;
+      margin-bottom: 20px;
     }
 
     .contact-button:hover {
       background-color: #009e9e;
     }
 
-    /* Estilos para el sector de comentarios */
-    .comments {
-      margin-bottom: 20px;
-    }
-
-    .comment-input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-    }
-
-    .comment-submit {
-      background-color: #4c2889;
-      color: #ffffff;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .comment-submit:hover {
-      background-color: #6c449d;
+    /* Estilos para la ventana emergente de contacto */
+    .contact-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      padding: 20px;
+      background-color: #000000;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      display: none;
+      text-align: center;
     }
 
     /* Estilos para el contador de likes */
@@ -107,94 +100,108 @@
       color: red;
     }
 
-    /* Estilos para el widget de temperatura */
-    .weather-widget {
-      text-align: center;
-      margin-bottom: 20px;
+    /* Estilos para los comentarios */
+    .comments {
+      margin-top: 20px;
     }
 
-    .weather-icon {
-      width: 50px;
-      height: 50px;
+    .comment-input {
+      width: 100%;
+      padding: 10px;
       margin-bottom: 10px;
     }
 
-    .temperature {
-      font-size: 24px;
-      font-weight: bold;
+    .comment-submit {
+      background-color: #00bfbf;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
     }
 
-    .location {
+    .comment-submit:hover {
+      background-color: #009e9e;
+    }
+
+    /* Estilos para los botones de contacto */
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .contact-buttons .contact-button {
+      background-color: #00bfbf;
+      color: #ffffff;
+      border: none;
+      padding: 10px;
+      margin: 0 5px;
       font-size: 16px;
-      color: #888888;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+
+    .contact-buttons .contact-button:hover {
+      background-color: #009e9e;
+    }
+
+    .contact-buttons .contact-button .contact-icon {
+      margin-right: 5px;
     }
   </style>
   <script>
-    // Función para mostrar/ocultar la ventana emergente de contacto
+    var currentTab = 0;
+    var tabs = document.getElementsByClassName("tab-content");
+
+    function showTab(index) {
+      tabs[currentTab].style.display = "none";
+      tabs[index].style.display = "block";
+      currentTab = index;
+    }
+
     function toggleContactPopup() {
       var popup = document.getElementById("contact-popup");
       popup.style.display = (popup.style.display === "none") ? "block" : "none";
     }
 
-    // Función para incrementar el contador de likes
     function incrementLikes() {
       var counter = document.getElementById("like-counter");
       var likes = parseInt(counter.textContent);
       counter.textContent = (likes + 1).toString();
     }
-
-    // Función para obtener la temperatura en tiempo real
-    function getRealTimeTemperature() {
-      // Simulación de obtención de la temperatura en tiempo real
-      var temperature = Math.floor(Math.random() * (35 - 15 + 1)) + 15;
-      var location = "New York";
-
-      // Actualizar los elementos del widget
-      document.getElementById("temperature").textContent = temperature + "°C";
-      document.getElementById("location").textContent = location;
-    }
-
-    // Actualizar la temperatura cada 10 segundos
-    setInterval(getRealTimeTemperature, 10000);
-
-    function openTab(tabName) {
-      var i, tabContent;
-      tabContent = document.getElementsByClassName("tab-content");
-      for (i = 0; i < tabContent.length; i++) {
-        tabContent[i].style.display = "none";
-      }
-      document.getElementById(tabName).style.display = "block";
-    }
   </script>
 </head>
 <body>
-  <div class="content">
+  <div class="container">
     <h1>Perfil Profesional</h1>
+    <img class="profile-image" src="https://lavender-bewildered-octopus-416.mypinata.cloud/ipfs/QmXh1FVE7JqnFFNDpXb2xhWsF58QXHBdE7jDm4d92wL5M4?_gl=1*9qzx3m*rs_ga*NTgzMzM3YTMtOWRiMS00MjJmLTgyOGItODNiMzI4NGEzZmQw*rs_ga_5RMPXG14TE*MTY4Njc5NDYwMC4xOC4xLjE2ODY3OTQ3MzYuNjAuMC4w" alt="Imagen de perfil">
 
     <div class="tabs">
       <div class="tab">
-        <button onclick="openTab('experience')">Experiencia</button>
+        <button onclick="showTab(0)">Experiencia</button>
       </div>
       <div class="tab">
-        <button onclick="openTab('skills')">Habilidades</button>
+        <button onclick="showTab(1)">Habilidades</button>
       </div>
       <div class="tab">
-        <button onclick="openTab('knowledge')">Conocimientos</button>
+        <button onclick="showTab(2)">Conocimientos</button>
       </div>
       <div class="tab">
-        <button onclick="openTab('personal-data')">Datos Personales</button>
+        <button onclick="showTab(3)">Datos Personales</button>
       </div>
       <div class="tab">
-        <button onclick="openTab('qualities')">Cualidades</button>
+        <button onclick="showTab(4)">Cualidades</button>
       </div>
     </div>
 
-    <div id="experience" class="tab-content">
+    <div id="experience" class="tab-content" style="display: block;">
       <h3>Experiencia</h3>
       <p>Aquí puedes agregar tu texto sobre experiencia.</p>
     </div>
 
-    <div id="skills" class="tab-content" style="display: block;">
+    <div id="skills" class="tab-content">
       <h3>Habilidades</h3>
       <ul>
         <li>Lenguajes de programación: JavaScript, Python, Java.</li>
@@ -203,49 +210,97 @@
         <li>APIs y servicios web: Diseño y desarrollo de APIs RESTful. Uso de Swagger y Postman.</li>
         <li>Seguridad: Implementación de medidas de seguridad y protección contra ataques comunes.</li>
         <li>Control de versiones: Git.</li>
-        <li>Pruebas y depuración: Pruebas unitarias, integración y funcionales.</li>
-        <li>Escalabilidad y rendimiento: Optimización de consultas, almacenamiento en caché y escalabilidad horizontal.</li>
-        <li>Conceptos de redes: HTTP, TCP/IP.</li>
+        <li>Metodologías ágiles: Scrum.</li>
       </ul>
     </div>
 
-    <div id="knowledge" class="tab-content" style="display: none;">
+    <div id="knowledge" class="tab-content">
       <h3>Conocimientos</h3>
-      <p>Aquí puedes agregar tu texto sobre conocimientos.</p>
+      <p>Puedes agregar tus conocimientos aquí.</p>
     </div>
 
-    <div id="personal-data" class="tab-content" style="display: none;">
+    <div id="personal-data" class="tab-content">
       <h3>Datos Personales</h3>
-      <p>Aquí puedes agregar tu texto sobre datos personales.</p>
+      <ul>
+        <li>Nombre: Juan Pérez</li>
+        <li>Edad: 30 años</li>
+        <li>Ubicación: Ciudad de México</li>
+        <li>Email: juanperez@gmail.com</li>
+        <li>Teléfono: +52 1234567890</li>
+      </ul>
     </div>
 
-    <div id="qualities" class="tab-content" style="display: none;">
+    <div id="qualities" class="tab-content">
       <h3>Cualidades</h3>
-      <p>Aquí puedes agregar tu texto sobre cualidades.</p>
+      <ul>
+        <li>Proactivo</li>
+        <li>Resolutivo</li>
+        <li>Trabajo en equipo</li>
+        <li>Comunicación efectiva</li>
+        <li>Adaptabilidad</li>
+      </ul>
     </div>
 
     <div class="contact-buttons">
-      <button class="contact-button" onclick="toggleContactPopup()">Suscripción</button>
-      <button class="contact-button" onclick="toggleContactPopup()">Iniciar sesión</button>
+      <button class="contact-button" onclick="window.open('https://api.whatsapp.com/send?phone=1234567890')">
+        <img class="contact-icon" src="https://example.com/whatsapp-icon.png" alt="WhatsApp">
+        WhatsApp
+      </button>
+      <button class="contact-button" onclick="window.open('https://t.me/username')">
+        <img class="contact-icon" src="https://example.com/telegram-icon.png" alt="Telegram">
+        Telegram
+      </button>
+      <button class="contact-button" onclick="window.open('mailto:juanperez@gmail.com')">
+        <img class="contact-icon" src="https://example.com/gmail-icon.png" alt="Gmail">
+        Gmail
+      </button>
+      <button class="contact-button" onclick="window.open('https://linkedin.com/in/username')">
+        <img class="contact-icon" src="https://example.com/linkedin-icon.png" alt="LinkedIn">
+        LinkedIn
+      </button>
+      <button class="contact-button" onclick="window.open('https://github.com/username')">
+        <img class="contact-icon" src="https://example.com/github-icon.png" alt="GitHub">
+        GitHub
+      </button>
     </div>
 
-    <div id="contact-popup" style="display: none;">
-      <form class="comments">
-        <input type="text" class="comment-input" placeholder="Deja un comentario">
-        <button class="comment-submit">Enviar</button>
-      </form>
+    <div class="comments">
+      <h3>Comentarios</h3>
+      <input class="comment-input" type="text" placeholder="Escribe un comentario">
+      <button class="comment-submit">Enviar</button>
     </div>
 
     <div class="like-counter">
-      <span id="like-counter">0</span> likes
-      <span class="like-button" onclick="incrementLikes()">❤️</span>
+      <span id="like-counter">0</span> Likes
+      <span class="like-button" onclick="incrementLikes()">👍</span>
     </div>
+  </div>
 
-    <div class="weather-widget">
-      <img src="weather-icon.png" alt="Weather Icon" class="weather-icon">
-      <div class="temperature">-</div>
-      <div class="location">-</div>
-    </div>
+  <div id="contact-popup" class="contact-popup">
+    <h3>Contacto</h3>
+    <p>Puedes contactarme a través de los siguientes medios:</p>
+    <button class="contact-button" onclick="window.open('https://api.whatsapp.com/send?phone=1234567890')">
+      <img class="contact-icon" src="https://example.com/whatsapp-icon.png" alt="WhatsApp">
+      WhatsApp
+    </button>
+    <button class="contact-button" onclick="window.open('https://t.me/username')">
+      <img class="contact-icon" src="https://example.com/telegram-icon.png" alt="Telegram">
+      Telegram
+    </button>
+    <button class="contact-button" onclick="window.open('mailto:juanperez@gmail.com')">
+      <img class="contact-icon" src="https://example.com/gmail-icon.png" alt="Gmail">
+      Gmail
+    </button>
+    <button class="contact-button" onclick="window.open('https://linkedin.com/in/username')">
+      <img class="contact-icon" src="https://example.com/linkedin-icon.png" alt="LinkedIn">
+      LinkedIn
+    </button>
+    <button class="contact-button" onclick="window.open('https://github.com/username')">
+      <img class="contact-icon" src="https://example.com/github-icon.png" alt="GitHub">
+      GitHub
+    </button>
+    <button class="contact-button" onclick="toggleContactPopup()">Cerrar</button>
   </div>
 </body>
 </html>
+
