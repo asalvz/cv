@@ -65,34 +65,35 @@
       margin-top: 20px;
     }
 
-     .tab {
-      overflow: hidden;
-      border: 1px solid #ccc;
-      background-color: #f9f9f9;
-      margin-top: 20px;
+    .tab {
+      margin: 0 10px;
     }
 
     /* Estilos de los botones de las pestañas */
     .tab button {
-      background-color: inherit;
+      background-color: #6a1b9a;
+      color: #ffffff;
       border: none;
       outline: none;
       cursor: pointer;
       padding: 14px 16px;
       transition: 0.3s;
+      font-size: 16px;
     }
 
     /* Estilos del botón activo */
     .tab button.active {
-      background-color: #ccc;
+      background-color: #9c4dcc;
     }
 
     /* Estilos del contenido de las pestañas */
     .tab-content {
       display: none;
       padding: 20px;
-      border: 1px solid #ccc;
+      border: 1px solid #9c4dcc;
       border-top: none;
+      background-color: #ffffff;
+      color: #000000;
     }
 
     /* Estilos para el botón de contacto */
@@ -168,42 +169,50 @@
     <h1>Horacio Ortiz</h1>
 
     <img src="https://lavender-bewildered-octopus-416.mypinata.cloud/ipfs/QmXh1FVE7JqnFFNDpXb2xhWsF58QXHBdE7jDm4d92wL5M4?_gl=1*1rx40z6*rs_ga*NTgzMzM3YTMtOWRiMS00MjJmLTgyOGItODNiMzI4NGEzZmQw*rs_ga_5RMPXG14TE*MTY4NjY2NDA2Ny4xNi4xLjE2ODY2NjQ0MTcuNjAuMC4w" alt="Foto de perfil" class="profile-image">
- <div class="tab">
-    <button class="tablinks" onclick="openTab('skills')">Habilidades</button>
-    <button class="tablinks" onclick="openTab('knowledge')">Conocimientos</button>
-    <button class="tablinks" onclick="openTab('personal-data')">Datos Personales</button>
-    <button class="tablinks" onclick="openTab('qualities')">Cualidades</button>
-  </div>
+    <div class="tabs">
+      <div class="tab">
+        <button class="tablinks" onclick="openTab('skills')">Habilidades</button>
+      </div>
+      <div class="tab">
+        <button class="tablinks" onclick="openTab('knowledge')">Conocimientos</button>
+      </div>
+      <div class="tab">
+        <button class="tablinks" onclick="openTab('personal-data')">Datos Personales</button>
+      </div>
+      <div class="tab">
+        <button class="tablinks" onclick="openTab('qualities')">Cualidades</button>
+      </div>
+    </div>
 
-  <div id="skills" class="tab-content">
-    <h3>Habilidades</h3>
-    <ul>
-      <li>Lenguajes: Python, Java, C#, Ruby, PHP.</li>
-      <li>Frameworks: Django, Flask, Spring, ASP.NET, Ruby on Rails, Laravel, Symfony.</li>
-      <li>Bases de datos: MySQL, PostgreSQL, MongoDB.</li>
-      <li>APIs y servicios web: Diseño y desarrollo de APIs RESTful. Uso de Swagger y Postman.</li>
-      <li>Seguridad: Implementación de medidas de seguridad y protección contra ataques comunes.</li>
-      <li>Control de versiones: Git.</li>
-      <li>Pruebas y depuración: Pruebas unitarias, integración y funcionales.</li>
-      <li>Escalabilidad y rendimiento: Optimización de consultas, almacenamiento en caché y escalabilidad horizontal.</li>
-      <li>Conceptos de redes: HTTP, TCP/IP.</li>
-    </ul>
-  </div>
+    <div id="skills" class="tab-content">
+      <h3>Habilidades</h3>
+      <ul>
+        <li>Lenguajes: Python, Java, C#, Ruby, PHP.</li>
+        <li>Frameworks: Django, Flask, Spring, ASP.NET, Ruby on Rails, Laravel, Symfony.</li>
+        <li>Bases de datos: MySQL, PostgreSQL, MongoDB.</li>
+        <li>APIs y servicios web: Diseño y desarrollo de APIs RESTful. Uso de Swagger y Postman.</li>
+        <li>Seguridad: Implementación de medidas de seguridad y protección contra ataques comunes.</li>
+        <li>Control de versiones: Git.</li>
+        <li>Pruebas y depuración: Pruebas unitarias, integración y funcionales.</li>
+        <li>Escalabilidad y rendimiento: Optimización de consultas, almacenamiento en caché y escalabilidad horizontal.</li>
+        <li>Conceptos de redes: HTTP, TCP/IP.</li>
+      </ul>
+    </div>
 
-  <div id="knowledge" class="tab-content" style="display: none;">
-    <h3>Conocimientos</h3>
-    <p>Aquí puedes agregar tu texto sobre conocimientos.</p>
-  </div>
+    <div id="knowledge" class="tab-content" style="display: none;">
+      <h3>Conocimientos</h3>
+      <p>Aquí puedes agregar tu texto sobre conocimientos.</p>
+    </div>
 
-  <div id="personal-data" class="tab-content" style="display: none;">
-    <h3>Datos Personales</h3>
-    <p>Aquí puedes agregar tu texto sobre datos personales.</p>
-  </div>
+    <div id="personal-data" class="tab-content" style="display: none;">
+      <h3>Datos Personales</h3>
+      <p>Aquí puedes agregar tu texto sobre datos personales.</p>
+    </div>
 
-  <div id="qualities" class="tab-content" style="display: none;">
-    <h3>Cualidades</h3>
-    <p>Aquí puedes agregar tu texto sobre cualidades.</p>
-  </div>
+    <div id="qualities" class="tab-content" style="display: none;">
+      <h3>Cualidades</h3>
+      <p>Aquí puedes agregar tu texto sobre cualidades.</p>
+    </div>
 
     <button onclick="toggleContactPopup()" class="contact-button">Contacto</button>
 
@@ -223,5 +232,3 @@
   </div>
 </body>
 </html>
-
-
