@@ -152,14 +152,29 @@
     }
   </style>
   <script>
-    var currentTab = 0;
-    var tabs = document.getElementsByClassName("tab-content");
+   var currentTab = -1; // Valor inicial para mantener todas las pestañas cerradas por defecto
 
-    function showTab(index) {
-      tabs[currentTab].style.display = "none";
-      tabs[index].style.display = "block";
-      currentTab = index;
+function showTab(index) {
+  var tabContent = document.getElementsByClassName("tab-content");
+  var tabButton = document.getElementsByClassName("tab")[index].getElementsByTagName("button")[0];
+
+  if (currentTab === index) {
+    // Si la pestaña ya está abierta, se cierra al hacer clic nuevamente
+    tabContent[index].style.display = "none";
+    tabButton.classList.remove("active");
+    currentTab = -1;
+  } else {
+    // Si se hace clic en una pestaña diferente, se cierra la pestaña actualmente abierta (si hay alguna) y se abre la nueva pestaña
+    if (currentTab !== -1) {
+      tabContent[currentTab].style.display = "none";
+      document.getElementsByClassName("tab")[currentTab].getElementsByTagName("button")[0].classList.remove("active");
     }
+    tabContent[index].style.display = "block";
+    tabButton.classList.add("active");
+    currentTab = index;
+  }
+}
+
 
     function toggleContactPopup() {
       var popup = document.getElementById("contact-popup");
@@ -178,23 +193,24 @@
     <h1>Horacio Ortiz</h1>
     <img class="profile-image" src="https://lavender-bewildered-octopus-416.mypinata.cloud/ipfs/QmXh1FVE7JqnFFNDpXb2xhWsF58QXHBdE7jDm4d92wL5M4?_gl=1*9qzx3m*rs_ga*NTgzMzM3YTMtOWRiMS00MjJmLTgyOGItODNiMzI4NGEzZmQw*rs_ga_5RMPXG14TE*MTY4Njc5NDYwMC4xOC4xLjE2ODY3OTQ3MzYuNjAuMC4w" alt="Imagen de perfil">
 
-    <div class="tabs">
-      <div class="tab">
-        <button onclick="showTab(0)">Experiencia</button>
-      </div>
-      <div class="tab">
-        <button onclick="showTab(1)">Habilidades</button>
-      </div>
-      <div class="tab">
-        <button onclick="showTab(2)">Conocimientos</button>
-      </div>
-      <div class="tab">
-        <button onclick="showTab(3)">Datos Personales</button>
-      </div>
-      <div class="tab">
-        <button onclick="showTab(4)">Cualidades</button>
-      </div>
-    </div>
+  <div class="tabs">
+  <div class="tab">
+    <button onclick="showTab(0)">Experiencia</button>
+  </div>
+  <div class="tab">
+    <button onclick="showTab(1)">Habilidades</button>
+  </div>
+  <div class="tab">
+    <button onclick="showTab(2)">Conocimientos</button>
+  </div>
+  <div class="tab">
+    <button onclick="showTab(3)">Datos Personales</button>
+  </div>
+  <div class="tab">
+    <button onclick="showTab(4)">Cualidades</button>
+  </div>
+</div>
+
 
     <div id="experience" class="tab-content" style="display: block;">
       <h3>Experiencia</h3>
