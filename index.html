@@ -3,13 +3,23 @@
 <head>
   <style>
     /* Estilos generales */
-  body {
-  background: linear-gradient(45deg, #1a237e, #000000);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-}
+    body {
+      background: linear-gradient(45deg, #1a237e, #000000);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+    }
 
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .centered-content {
+      max-width: 800px;
+      width: 100%;
     }
 
     .content {
@@ -127,76 +137,80 @@
   </script>
 </head>
 <body>
-  <div class="content">
-    <h1>Perfil Profesional</h1>
-    <img class="profile-image" src="https://lavender-bewildered-octopus-416.mypinata.cloud/ipfs/QmXh1FVE7JqnFFNDpXb2xhWsF58QXHBdE7jDm4d92wL5M4?_gl=1*9qzx3m*rs_ga*NTgzMzM3YTMtOWRiMS00MjJmLTgyOGItODNiMzI4NGEzZmQw*rs_ga_5RMPXG14TE*MTY4Njc5NDYwMC4xOC4xLjE2ODY3OTQ3MzYuNjAuMC4w" alt="Imagen de perfil">
+  <div class="container">
+    <div class="centered-content">
+      <div class="content">
+        <h1>Perfil Profesional</h1>
+        <img class="profile-image" src="https://lavender-bewildered-octopus-416.mypinata.cloud/ipfs/QmXh1FVE7JqnFFNDpXb2xhWsF58QXHBdE7jDm4d92wL5M4?_gl=1*9qzx3m*rs_ga*NTgzMzM3YTMtOWRiMS00MjJmLTgyOGItODNiMzI4NGEzZmQw*rs_ga_5RMPXG14TE*MTY4Njc5NDYwMC4xOC4xLjE2ODY3OTQ3MzYuNjAuMC4w" alt="Imagen de perfil">
 
-    <div class="tabs">
-      <div class="tab">
-        <button onclick="openTab('experience')">Experiencia</button>
+        <div class="tabs">
+          <div class="tab">
+            <button onclick="openTab('experience')">Experiencia</button>
+          </div>
+          <div class="tab">
+            <button onclick="openTab('skills')">Habilidades</button>
+          </div>
+          <div class="tab">
+            <button onclick="openTab('knowledge')">Conocimientos</button>
+          </div>
+          <div class="tab">
+            <button onclick="openTab('personal-data')">Datos Personales</button>
+          </div>
+          <div class="tab">
+            <button onclick="openTab('qualities')">Cualidades</button>
+          </div>
+        </div>
+
+        <div id="experience" class="tab-content">
+          <h3>Experiencia</h3>
+          <p>Aquí puedes agregar tu texto sobre experiencia.</p>
+        </div>
+
+        <div id="skills" class="tab-content" style="display: block;">
+          <h3>Habilidades</h3>
+          <ul>
+            <li>Lenguajes de programación: JavaScript, Python, Java.</li>
+            <li>Frameworks y bibliotecas: React, Angular, Node.js, Express.js.</li>
+            <li>Bases de datos: MySQL, PostgreSQL, MongoDB.</li>
+            <li>APIs y servicios web: Diseño y desarrollo de APIs RESTful. Uso de Swagger y Postman.</li>
+            <li>Seguridad: Implementación de medidas de seguridad y protección contra ataques comunes.</li>
+            <li>Control de versiones: Git.</li>
+            <li>Pruebas y depuración: Pruebas unitarias, integración y funcionales.</li>
+            <li>Escalabilidad y rendimiento: Optimización de consultas, almacenamiento en caché y escalabilidad horizontal.</li>
+            <li>Conceptos de redes: HTTP, TCP/IP.</li>
+          </ul>
+        </div>
+
+        <div id="knowledge" class="tab-content" style="display: none;">
+          <h3>Conocimientos</h3>
+          <p>Aquí puedes agregar tu texto sobre conocimientos.</p>
+        </div>
+
+        <div id="personal-data" class="tab-content" style="display: none;">
+          <h3>Datos Personales</h3>
+          <p>Aquí puedes agregar tu texto sobre datos personales.</p>
+        </div>
+
+        <div id="qualities" class="tab-content" style="display: none;">
+          <h3>Cualidades</h3>
+          <p>Aquí puedes agregar tu texto sobre cualidades.</p>
+        </div>
+
+        <button onclick="toggleContactPopup()" class="contact-button" style="background-color: #00bfbf;">Contacto</button>
+
+        <div id="contact-popup" class="contact-popup">
+          <p>Correo: horaciowalterortiz@gmail.com</p>
+          <p>Teléfono: +54 9 2617048835</p>
+          <p>Telegram: @horaciodev</p>
+          <p>WhatsApp: +54 9 2617048835</p>
+          <button onclick="toggleContactPopup()" class="contact-button">Cerrar</button>
+        </div>
+
+        <div class="like-counter">
+          <span id="like-counter">0</span>
+          <span class="like-button" onclick="incrementLikes()">❤️</span>
+        </div>
       </div>
-      <div class="tab">
-        <button onclick="openTab('skills')">Habilidades</button>
-      </div>
-      <div class="tab">
-        <button onclick="openTab('knowledge')">Conocimientos</button>
-      </div>
-      <div class="tab">
-        <button onclick="openTab('personal-data')">Datos Personales</button>
-      </div>
-      <div class="tab">
-        <button onclick="openTab('qualities')">Cualidades</button>
-      </div>
-    </div>
-
-    <div id="experience" class="tab-content">
-      <h3>Experiencia</h3>
-      <p>Aquí puedes agregar tu texto sobre experiencia.</p>
-    </div>
-
-    <div id="skills" class="tab-content" style="display: block;">
-      <h3>Habilidades</h3>
-      <ul>
-        <li>Lenguajes de programación: JavaScript, Python, Java.</li>
-        <li>Frameworks y bibliotecas: React, Angular, Node.js, Express.js.</li>
-        <li>Bases de datos: MySQL, PostgreSQL, MongoDB.</li>
-        <li>APIs y servicios web: Diseño y desarrollo de APIs RESTful. Uso de Swagger y Postman.</li>
-        <li>Seguridad: Implementación de medidas de seguridad y protección contra ataques comunes.</li>
-        <li>Control de versiones: Git.</li>
-        <li>Pruebas y depuración: Pruebas unitarias, integración y funcionales.</li>
-        <li>Escalabilidad y rendimiento: Optimización de consultas, almacenamiento en caché y escalabilidad horizontal.</li>
-        <li>Conceptos de redes: HTTP, TCP/IP.</li>
-      </ul>
-    </div>
-
-    <div id="knowledge" class="tab-content" style="display: none;">
-      <h3>Conocimientos</h3>
-      <p>Aquí puedes agregar tu texto sobre conocimientos.</p>
-    </div>
-
-    <div id="personal-data" class="tab-content" style="display: none;">
-      <h3>Datos Personales</h3>
-      <p>Aquí puedes agregar tu texto sobre datos personales.</p>
-    </div>
-
-    <div id="qualities" class="tab-content" style="display: none;">
-      <h3>Cualidades</h3>
-      <p>Aquí puedes agregar tu texto sobre cualidades.</p>
-    </div>
-
-    <button onclick="toggleContactPopup()" class="contact-button" style="background-color: #00bfbf;">Contacto</button>
-
-    <div id="contact-popup" class="contact-popup">
-      <p>Correo: horaciowalterortiz@gmail.com</p>
-      <p>Teléfono: +54 9 2617048835</p>
-      <p>Telegram: @horaciodev</p>
-      <p>WhatsApp: +54 9 2617048835</p>
-      <button onclick="toggleContactPopup()" class="contact-button">Cerrar</button>
-    </div>
-
-    <div class="like-counter">
-      <span id="like-counter">0</span>
-      <span class="like-button" onclick="incrementLikes()">❤️</span>
     </div>
   </div>
 </body>
