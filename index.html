@@ -153,6 +153,18 @@
     .contact-buttons .contact-button .contact-icon {
       margin-right: 5px;
     }
+        .fire-text {
+      font-size: 24px;
+      margin-top: 20px;
+      position: relative;
+      animation: fireEffect 2s infinite;
+    }
+
+    @keyframes fireEffect {
+      0% { color: #ffffff; }
+      50% { color: #FF5722; }
+      100% { color: #ffffff; }
+    }
   </style>
   <script>
     var currentTab = 0;
@@ -179,7 +191,8 @@
 <body>
   <div class="container">
     <h1>Horacio Ortiz</h1>
-    <p>Desarrollador Full Stack</p>
+    <p class="fire-text">Desarrollador Full Stack</p>
+
     <img class="profile-image" src="https://lavender-bewildered-octopus-416.mypinata.cloud/ipfs/QmXh1FVE7JqnFFNDpXb2xhWsF58QXHBdE7jDm4d92wL5M4?_gl=1*9qzx3m*rs_ga*NTgzMzM3YTMtOWRiMS00MjJmLTgyOGItODNiMzI4NGEzZmQw*rs_ga_5RMPXG14TE*MTY4Njc5NDYwMC4xOC4xLjE2ODY3OTQ3MzYuNjAuMC4w" alt="Imagen de perfil">
 
     <div class="tabs">
