@@ -4,142 +4,142 @@
   <title>Horacio Ortiz</title>
   
   <style>
-/* Estilos globales */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(45deg, #1a237e, #000000);
-  color: #ffffff;
-}
+    /* Estilos globales */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(45deg, #1a237e, #000000);
+      color: #ffffff;
+    }
 
-/* Estilos para el mensaje de bienvenida flotante */
-.welcome-message {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: #ffffff;
-  font-size: 24px;
-  font-weight: bold;
-  animation: fadeOut 3s ease-in-out;
-}
+    /* Estilos para el mensaje de bienvenida flotante */
+    .welcome-message {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #ffffff;
+      font-size: 24px;
+      font-weight: bold;
+      animation: fadeOut 3s ease-in-out;
+    }
 
-/* Animación para el mensaje de bienvenida */
-@keyframes fadeOut {
-  0% { opacity: 1; }
-  50% { opacity: 1; }
-  100% { opacity: 0; display: none; }
-}
+    /* Animación para el mensaje de bienvenida */
+    @keyframes fadeOut {
+      0% { opacity: 1; }
+      50% { opacity: 1; }
+      100% { opacity: 0; display: none; }
+    }
 
-/* Estilos para el contenido principal */
-.content {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 40px;
-  background-color: rgba(0, 0, 0, 0.9);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-  margin-top: 80px;
-  text-align: center;
-}
+    /* Estilos para el contenido principal */
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px;
+      background-color: rgba(0, 0, 0, 0.9);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      margin-top: 80px;
+      text-align: center;
+    }
 
-h1 {
-  font-size: 36px;
-  margin-bottom: 20px;
-}
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
 
-.profile-image {
-  max-width: 200px;
-  display: block;
-  margin: 0 auto;
-  border-radius: 50%;
-  border: 5px solid #ffffff;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-}
+    .profile-image {
+      max-width: 200px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 50%;
+      border: 5px solid #ffffff;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
 
-.tabs {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
 
-.tab {
-  padding: 10px 20px;
-  background-color: #333333;
-  cursor: pointer;
-  margin: 0 5px;
-  transition: background-color 0.3s;
-  border: none;
-  outline: none;
-  font-size: 18px;
-  color: #ffffff;
-  position: relative;
-  overflow: hidden;
-}
+    .tab {
+      padding: 10px 20px;
+      background-color: #333333;
+      cursor: pointer;
+      margin: 0 5px;
+      transition: background-color 0.3s;
+      border: none;
+      outline: none;
+      font-size: 18px;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+    }
 
-.tab:before {
-  content: "";
-  position: absolute;
-  top: -110%;
-  left: -110%;
-  width: 300%;
-  height: 300%;
-  background: linear-gradient(45deg, #1a237e, #000000);
-  transform: rotate(45deg);
-  transition: all 0.3s ease;
-  z-index: -1;
-}
+    .tab:before {
+      content: "";
+      position: absolute;
+      top: -110%;
+      left: -110%;
+      width: 300%;
+      height: 300%;
+      background: linear-gradient(45deg, #1a237e, #000000);
+      transform: rotate(45deg);
+      transition: all 0.3s ease;
+      z-index: -1;
+    }
 
-.tab:hover:before {
-  top: -10%;
-  left: -10%;
-}
+    .tab:hover:before {
+      top: -10%;
+      left: -10%;
+    }
 
-/* Estilos para el botón de contacto */
-.contact-button {
-  background-color: #ff4081;
-  color: #ffffff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 18px;
-  cursor: pointer;
-  margin-top: 20px;
-  transition: background-color 0.3s;
-}
+    /* Estilos para el botón de contacto */
+    .contact-button {
+      background-color: #ff4081;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s;
+    }
 
-.contact-button:hover {
-  background-color: #d5004e;
-}
+    .contact-button:hover {
+      background-color: #d5004e;
+    }
 
-/* Estilos para la ventana emergente de contacto */
-.contact-popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 300px;
-  padding: 20px;
-  background-color: #ffffff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  display: none;
-  text-align: center;
-  color: #000000;
-}
+    /* Estilos para la ventana emergente de contacto */
+    .contact-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      display: none;
+      text-align: center;
+      color: #000000;
+    }
 
-/* Estilos para el contador de likes */
-.like-counter {
-  text-align: center;
-  font-size: 18px;
-  margin-top: 20px;
-}
+    /* Estilos para el contador de likes */
+    .like-counter {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+    }
 
-.like-button {
-  cursor: pointer;
-  color: red;
-}
+    .like-button {
+      cursor: pointer;
+      color: red;
+    }
   </style>
   <script>
     // Función para mostrar/ocultar la ventana emergente de contacto
@@ -155,14 +155,14 @@ h1 {
       counter.textContent = (likes + 1).toString();
     }
 
-    // Función para mostrar el mensaje de bienvenida y ocultarlo después de un tiempo
-    window.onload = function() {
-      var welcomeMessage = document.getElementById("welcome-message");
-      welcomeMessage.style.display = "block";
-      setTimeout(function() {
-        welcomeMessage.style.display = "none";
-      }, 5000); // Cambiar la duración (en milisegundos) según sea necesario
-    };
+    // Funciones para mostrar y ocultar los contenidos de las pestañas
+    function showContent(tabId) {
+      var tabs = document.getElementsByClassName("tab-content");
+      for (var i = 0; i < tabs.length; i++) {
+        tabs[i].style.display = "none";
+      }
+      document.getElementById(tabId).style.display = "block";
+    }
   </script>
 </head>
 <body>
@@ -174,10 +174,26 @@ h1 {
     <img src="https://lavender-bewildered-octopus-416.mypinata.cloud/ipfs/QmXh1FVE7JqnFFNDpXb2xhWsF58QXHBdE7jDm4d92wL5M4?_gl=1*1rx40z6*rs_ga*NTgzMzM3YTMtOWRiMS00MjJmLTgyOGItODNiMzI4NGEzZmQw*rs_ga_5RMPXG14TE*MTY4NjY2NDA2Ny4xNi4xLjE2ODY2NjQ0MTcuNjAuMC4w" alt="Foto de perfil" class="profile-image">
 
     <div class="tabs">
-      <div class="tab">Habilidades</div>
-      <div class="tab">Conocimientos</div>
-      <div class="tab">Datos personales</div>
-      <div class="tab">Cualidades</div>
+      <div class="tab" onclick="showContent('skills')">Habilidades</div>
+      <div class="tab" onclick="showContent('knowledge')">Conocimientos</div>
+      <div class="tab" onclick="showContent('personal-data')">Datos personales</div>
+      <div class="tab" onclick="showContent('qualities')">Cualidades</div>
+    </div>
+
+    <div id="skills" class="tab-content" style="display: none;">
+      <p>Aquí puedes agregar tu texto sobre habilidades.</p>
+    </div>
+
+    <div id="knowledge" class="tab-content" style="display: none;">
+      <p>Aquí puedes agregar tu texto sobre conocimientos.</p>
+    </div>
+
+    <div id="personal-data" class="tab-content" style="display: none;">
+      <p>Aquí puedes agregar tu texto sobre datos personales.</p>
+    </div>
+
+    <div id="qualities" class="tab-content" style="display: none;">
+      <p>Aquí puedes agregar tu texto sobre cualidades.</p>
     </div>
 
     <button onclick="toggleContactPopup()" class="contact-button">Contacto</button>
@@ -198,3 +214,4 @@ h1 {
   </div>
 </body>
 </html>
+
