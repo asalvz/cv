@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <audio id="click-sound">
+  <source src="ruta_del_archivo_de_sonido.mp3" type="audio/mpeg">
+  <!-- Agrega aquí más etiquetas <source> para diferentes formatos de audio -->
+</audio>
+
 
   <style>
     /* Estilos generales */
@@ -231,6 +236,27 @@
       var likes = parseInt(counter.textContent);
       counter.textContent = (likes + 1).toString();
     }
+    function showTab(index) {
+  tabs[currentTab].style.display = "none";
+  tabs[index].style.display = "block";
+  currentTab = index;
+  
+  playClickSound(); // Reproduce el sonido al cambiar de pestaña
+}
+
+function toggleContactPopup() {
+  var popup = document.getElementById("contact-popup");
+  popup.style.display = (popup.style.display === "none") ? "block" : "none";
+  
+  playClickSound(); // Reproduce el sonido al mostrar/ocultar el popup de contacto
+}
+
+function playClickSound() {
+  var clickSound = document.getElementById("click-sound");
+  clickSound.currentTime = 0; // Reinicia la reproducción del sonido
+  clickSound.play();
+}
+
   </script>
 </head>
 <body>
