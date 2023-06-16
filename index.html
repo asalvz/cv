@@ -215,6 +215,22 @@
     font-weight: bold;
     color: #00CFFC;
   }
+    .register-login-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #A92305;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.register-login-button:hover {
+  background-color: #6c449d;
+}
+
   </style>
   <script>
     var currentTab = 0;
@@ -256,6 +272,13 @@ function playClickSound() {
   clickSound.currentTime = 0; // Reinicia la reproducción del sonido
   clickSound.play();
 }
+    window.onload = function() {
+  var tabContents = document.getElementsByClassName("tab-content");
+  for (var i = 0; i < tabContents.length; i++) {
+    tabContents[i].style.display = "none";
+  }
+};
+
 
   </script>
 </head>
@@ -264,6 +287,10 @@ function playClickSound() {
      <img class="profile-image" src="https://lavender-bewildered-octopus-416.mypinata.cloud/ipfs/QmXh1FVE7JqnFFNDpXb2xhWsF58QXHBdE7jDm4d92wL5M4?_gl=1*9qzx3m*rs_ga*NTgzMzM3YTMtOWRiMS00MjJmLTgyOGItODNiMzI4NGEzZmQw*rs_ga_5RMPXG14TE*MTY4Njc5NDYwMC4xOC4xLjE2ODY3OTQ3MzYuNjAuMC4w" alt="Imagen de perfil">
 
     <h1>Horacio Ortiz</h1>
+
+    <button class="register-login-button">Registro / Login</button>
+
+    
    <p class="fire-text" style="text-align: center;">Desarrollador Full Stack</p>
 
 
